@@ -5,7 +5,7 @@ const HOME_GARDEN = 'home essentials';
 
 export default function Products({ setCart, cart }) {
 
-   const [isDisabled, setIsDisabled] = useState(false);
+//    const [isDisabled, setIsDisabled] = useState(false);
 
   const [products] = useState([
 
@@ -82,20 +82,20 @@ export default function Products({ setCart, cart }) {
       
   ]);
 
-  const disableTheButton = (product,idx) =>{
-    let newCart1 = [...cart];
-    let itemInCart1 = newCart1.find(
-      (item) => product.idx === item.idx
-    );
+//   const disableTheButton = (product,idx) =>{
+//     let newCart1 = [...cart];
+//     let itemInCart1 = newCart1.find(
+//       (item) => product.idx === item.idx
+//     );
 
-    console.log(itemInCart1.quantity);
-    if(itemInCart1.quantity > 0){
-        console.log("disable it")
-        setIsDisabled(true);
-    }
-  }
+//     console.log(itemInCart1.quantity);
+//     if(itemInCart1.quantity > 0){
+//         console.log("disable it")
+//         setIsDisabled(true);
+//     }
+//   }
 
-  const addToCart = (product,idx) => {
+  const addToCart = (product) => {
     let newCart = [...cart];
     let itemInCart = newCart.find(
       (item) => product.name === item.name
@@ -111,7 +111,7 @@ export default function Products({ setCart, cart }) {
     }
     setCart(newCart);
 
-    disableTheButton(product,idx);
+ //   disableTheButton(product,idx);
     // setIsDisabled(true);
   };
 
@@ -139,7 +139,7 @@ export default function Products({ setCart, cart }) {
             <h4>${product.cost}</h4>
             <img src={product.image} alt={product.name} />
             {/* <button onClick={() => addToCart(product,idx) }> */}
-            <button disabled={isDisabled} onClick={() => addToCart(product)}>
+            <button onClick={() => addToCart(product)}>
               Add to Cart
             </button>
           </div>
